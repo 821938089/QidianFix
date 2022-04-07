@@ -15,6 +15,7 @@
 //   );
 // }
 
+import { C } from "./log";
 
 class App {
     static bookTitle = $('.crumbs-nav > a:last').text();
@@ -23,11 +24,14 @@ class App {
     static init() {
         // 无缝阅读模式 g_data.readSetting.rt = 1
         if (g_data.readSetting.rt) {
+            C.log('[QidianFix] 脚本开始运行。');
             addEventListener(
                 'scroll',
                 _.throttle(App.updateChapterUrl, 200),
                 true
             );
+        } else {
+            C.log('[QidianFix] 当前阅读模式为经典翻页模式，脚本已关闭。');
         }
     }
 

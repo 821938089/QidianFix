@@ -6,7 +6,7 @@
 // @description 修复起点网页无缝阅读模式下浏览器地址栏 URL 不更新的问题
 // @match       *://read.qidian.com/chapter/*/*/
 // @match       *://vipreader.qidian.com/chapter/*/*/
-// @version     0.0.0
+// @version     0.0.1
 // @author      Horis
 // @require     https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js
 // @require     https://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js
@@ -18,26 +18,54 @@
 (function () {
 'use strict';
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var nullFn = function () {};
+
+var C;
+function toggleConsole(debug) {
+  if (debug) {
+    C = _extends({}, unsafeWindow.console);
+  } else {
+    C = {
+      log: nullFn,
+      debug: nullFn,
+      error: nullFn,
+      group: nullFn,
+      groupCollapsed: nullFn,
+      groupEnd: nullFn,
+      time: nullFn,
+      timeEnd: nullFn
+    };
+  }
+}
+
 // // global CSS
-// import globalCss from './style.css';
-// // CSS modules
-// import styles, { stylesheet } from './style.module.css';
-// export function getGreetings() {
-//   return (
-//     <>
-//       <div className={styles.panel}>
-//         hello
-//       </div>
-//       <style>{globalCss}</style>
-//       <style>{stylesheet}</style>
-//     </>
-//   );
-// }
+
 class App {
   static init() {
     // 无缝阅读模式 g_data.readSetting.rt = 1
     if (g_data.readSetting.rt) {
+      C.log('[QidianFix] 脚本开始运行。');
       addEventListener('scroll', _.throttle(App.updateChapterUrl, 200), true);
+    } else {
+      C.log('[QidianFix] 当前阅读模式为经典翻页模式，脚本已关闭。');
     }
   }
 
@@ -94,30 +122,6 @@ class App {
 
 App.bookTitle = $('.crumbs-nav > a:last').text();
 App.curUrl = location.href.split('qidian.com')[1];
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function toggleConsole(debug) {
-  if (debug) {
-    _extends({}, unsafeWindow.console);
-  }
-}
 
 // import { getGreetings } from './app';
 toggleConsole(true);
