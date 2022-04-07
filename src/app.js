@@ -66,11 +66,11 @@ class App {
             bubbles: true,
             cancelable: true,
         });
-        Object.defineProperty(event, 'target', {
-            value: document.querySelector('#j_navCatalogBtn > a > i'),
-            enumerable: true,
-        });
-        document.querySelector('.theme-0').dispatchEvent(event);
+        // Object.defineProperty(event, 'target', {
+        //     value: document.querySelector('#j_navCatalogBtn > a > i'),
+        //     enumerable: true,
+        // });
+        document.querySelector('#j_navCatalogBtn > a > i').dispatchEvent(event);
     }
 
     static scrollChapter() {
