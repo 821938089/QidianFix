@@ -1,4 +1,8 @@
 /* global css */
-body {
+/* body {
   @apply bg-gray-200;
+} */
+
+.content-wrap {
+  background: none !important;
 }

@@ -16,12 +16,17 @@
 // }
 
 import { C } from "./log";
+import qidianCss from './style.css'
+
 
 class App {
     static bookTitle = $('.crumbs-nav > a:last').text();
     static curUrl = location.href.split('qidian.com')[1];
 
     static init() {
+        // 移除文字阴影
+        document.head.appendChild(<style>{qidianCss}</style>);
+
         // 无缝阅读模式 g_data.readSetting.rt = 1
         if (g_data.readSetting.rt) {
             C.log('[QidianFix] 脚本开始运行。');
@@ -30,6 +35,7 @@ class App {
                 _.throttle(App.updateChapterUrl, 200),
                 true
             );
+            
         } else {
             C.log('[QidianFix] 当前阅读模式为经典翻页模式，脚本已关闭。');
         }
