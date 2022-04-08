@@ -16,7 +16,7 @@
 // }
 
 import { C } from "./log";
-import qidianCss from './style.css'
+import qidianCss from './qidian.css'
 
 
 class App {

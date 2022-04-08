@@ -4,4 +4,6 @@
 
 删除本章说文字内阴影
 
+调整本章说评论回复弹窗
+
 [点此安装](https://github.com/821938089/QidianFix/raw/main/dist/QidianFix.user.js)

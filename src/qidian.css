@@ -1,0 +1,19 @@
+/* 移除文字阴影 */
+.content-wrap {
+    background: none !important;
+}
+
+/* 调整本章说评论回复弹窗 */
+.review-replies-modal {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.review .review-body .big-emoji {
+    max-height: 100px;
+}
+
+/* .review-replies-popup .review-wrap:first {
+    max-height: 270px;
+    overflow-y: auto;
+} */

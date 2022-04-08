@@ -6,7 +6,7 @@
 // @description 修复起点网页无缝阅读模式下浏览器地址栏 URL 不更新的问题
 // @match       *://read.qidian.com/chapter/*/*/
 // @match       *://vipreader.qidian.com/chapter/*/*/
-// @version     0.0.3
+// @version     0.0.4
 // @author      Horis
 // @require     https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js
 // @require     https://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js
@@ -56,7 +56,7 @@ function toggleConsole(debug) {
   }
 }
 
-var css_248z = ".content-wrap{background:none!important}";
+var css_248z = ".content-wrap{background:none!important}.review-replies-modal{top:50%;transform:translateY(-50%)}.review .review-body .big-emoji{max-height:100px}";
 
 // // global CSS
 
