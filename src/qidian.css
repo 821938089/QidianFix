@@ -9,8 +9,8 @@
     transform: translateY(-50%);
 }
 
-.review .review-body .big-emoji {
-    max-height: 100px;
+.review-replies-popup > .review-wrap .big-emoji {
+    max-height: 120px;
 }
 
 /* .review-replies-popup .review-wrap:first {
