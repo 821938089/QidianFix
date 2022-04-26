@@ -6,7 +6,7 @@
 // @description 修复起点网页无缝阅读模式下浏览器地址栏 URL 不更新的问题
 // @match       *://read.qidian.com/chapter/*/*/
 // @match       *://vipreader.qidian.com/chapter/*/*/
-// @version     0.0.5
+// @version     0.0.6
 // @author      Horis
 // @require     https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js
 // @require     https://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js
@@ -56,18 +56,16 @@ function toggleConsole(debug) {
   }
 }
 
-var css_248z = ".content-wrap{background:none!important}.review-replies-modal{top:50%;transform:translateY(-50%)}.review-replies-popup>.review-wrap .big-emoji{max-height:120px}";
-
 // // global CSS
 
 class App {
   static init() {
     // 移除文字阴影
-    document.head.appendChild(VM.hm("style", null, css_248z)); // 无缝阅读模式 g_data.readSetting.rt = 1
-
+    // document.head.appendChild(<style>{qidianCss}</style>);
+    // 无缝阅读模式 g_data.readSetting.rt = 1
     if (g_data.readSetting.rt) {
       C.log('[QidianFix] 脚本开始运行。');
-      addEventListener('scroll', _.throttle(App.updateChapterUrl, 200), true);
+      addEventListener('scroll', _.throttle(App.updateChapterUrl, 600), true);
     } else {
       C.log('[QidianFix] 当前阅读模式为经典翻页模式，脚本已关闭。');
     }

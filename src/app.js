@@ -16,7 +16,7 @@
 // }
 
 import { C } from "./log";
-import qidianCss from './qidian.css'
+// import qidianCss from './qidian.css'
 
 
 class App {
@@ -25,14 +25,14 @@ class App {
 
     static init() {
         // 移除文字阴影
-        document.head.appendChild(<style>{qidianCss}</style>);
+        // document.head.appendChild(<style>{qidianCss}</style>);
 
         // 无缝阅读模式 g_data.readSetting.rt = 1
         if (g_data.readSetting.rt) {
             C.log('[QidianFix] 脚本开始运行。');
             addEventListener(
                 'scroll',
-                _.throttle(App.updateChapterUrl, 200),
+                _.throttle(App.updateChapterUrl, 600),
                 true
             );
             
