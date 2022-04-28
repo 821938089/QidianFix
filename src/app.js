@@ -16,7 +16,7 @@
 // }
 
 import { C } from "./log";
-// import qidianCss from './qidian.css'
+import qidianCss from './qidian.css'
 
 
 class App {
@@ -24,8 +24,8 @@ class App {
     static curUrl = location.href.split('qidian.com')[1];
 
     static init() {
-        // 移除文字阴影
-        // document.head.appendChild(<style>{qidianCss}</style>);
+        // 调整本章说评论回复弹窗
+        document.head.appendChild(<style>{qidianCss}</style>);
 
         // 无缝阅读模式 g_data.readSetting.rt = 1
         if (g_data.readSetting.rt) {
