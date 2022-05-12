@@ -70,7 +70,7 @@ class App {
         //     value: document.querySelector('#j_navCatalogBtn > a > i'),
         //     enumerable: true,
         // });
-        document.querySelector('#j_navCatalogBtn > a > i').dispatchEvent(event);
+        document.querySelector('#j_navCatalogBtn > a > i')?.dispatchEvent(event);
     }
 
     static scrollChapter() {

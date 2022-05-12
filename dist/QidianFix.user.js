@@ -6,7 +6,7 @@
 // @description 修复起点网页无缝阅读模式下浏览器地址栏 URL 不更新的问题
 // @match       *://read.qidian.com/chapter/*/*/
 // @match       *://vipreader.qidian.com/chapter/*/*/
-// @version     0.0.7
+// @version     0.0.8
 // @author      Horis
 // @require     https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js
 // @require     https://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js
@@ -91,6 +91,8 @@ class App {
   }
 
   static loadChapterList() {
+    var _document$querySelect;
+
     // https://stackoverflow.com/a/27145432
     const event = new MouseEvent('mouseover', {
       view: unsafeWindow,
@@ -101,7 +103,7 @@ class App {
     //     enumerable: true,
     // });
 
-    document.querySelector('#j_navCatalogBtn > a > i').dispatchEvent(event);
+    (_document$querySelect = document.querySelector('#j_navCatalogBtn > a > i')) == null ? void 0 : _document$querySelect.dispatchEvent(event);
   }
 
   static scrollChapter() {
