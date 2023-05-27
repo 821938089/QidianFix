@@ -3,6 +3,7 @@
 // @name:zh-CN  起点优化
 // @namespace   83ffa0c4-4041-4973-91be-e60b27c7bef9
 // @description 修复起点网页无缝阅读模式下浏览器地址栏 URL 不更新的问题
+// @match       *://www.qidian.com/chapter/*/*/
 // @match       *://read.qidian.com/chapter/*/*/
 // @match       *://vipreader.qidian.com/chapter/*/*/
 // @grant       GM_addStyle
