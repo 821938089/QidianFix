@@ -7,7 +7,7 @@
 // @match       *://www.qidian.com/chapter/*/*/
 // @match       *://read.qidian.com/chapter/*/*/
 // @match       *://vipreader.qidian.com/chapter/*/*/
-// @version     0.0.9
+// @version     0.1.0
 // @author      Horis
 // @require     https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js
 // @require     https://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js
@@ -158,7 +158,13 @@ class AppV2 {
   }
 
   static updateChapterUrl() {
-    const element = AppV2.scrollChapter().find('.print');
+    const chapterElement = AppV2.scrollChapter();
+
+    if (!chapterElement) {
+      return;
+    }
+
+    const element = chapterElement.find('.print');
     const chapterId = element.data('id');
     const titleElement = element.find('h1').clone();
     titleElement.find('.review').remove();
@@ -192,7 +198,7 @@ class AppV2 {
 
 AppV2.bookTitle = $('#r-breadcrumbs > a:last').text();
 AppV2.curUrl = location.href.split('qidian.com')[1];
-AppV2.bookId = "";
+AppV2.bookId = '';
 
 // import { getGreetings } from './app';
 toggleConsole(true);

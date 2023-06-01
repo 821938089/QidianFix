@@ -4,7 +4,7 @@ import { getCookieValue } from './utils';
 class AppV2 {
     static bookTitle = $('#r-breadcrumbs > a:last').text();
     static curUrl = location.href.split('qidian.com')[1];
-    static bookId = ""
+    static bookId = '';
 
     static init() {
         const qdrs = getCookieValue('qdrs');
@@ -28,7 +28,11 @@ class AppV2 {
     }
 
     static updateChapterUrl() {
-        const element = AppV2.scrollChapter().find('.print');
+        const chapterElement = AppV2.scrollChapter();
+        if (!chapterElement) {
+            return;
+        }
+        const element = chapterElement.find('.print');
         const chapterId = element.data('id');
         const titleElement = element.find('h1').clone();
         titleElement.find('.review').remove();
